@@ -1,13 +1,40 @@
+*{
+  /*font-family: 'Lato', sans-serif !important;*/
+  font-family: 'Oswald', sans-serif;
+}
 body {
   padding: 0;
+  /*background-color: #EBEBEB !important;*/
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
 a {
   color: #00B7FF;
 }
+
+/*globals*/
+
+.panel-info > .panel-heading{
+  background-color: #4ba9f2 !important;
+}
+
+
+
+
+/*index*/
 #mainNavbar{
   margin-bottom: 0;
+  z-index: 9999;
 }
+#mainNavbar li, #mainNavbar input{
+  font-size: 1.5em;
+}
+#bernieBrandImage{
+  height: 65px;
+  position: relative;
+  bottom: 22px;
+  right:15px;
+}
+
 #mainImageDiv{
   padding-top:0;
   margin-top:0;
@@ -16,7 +43,47 @@ a {
 #mainImage{
   width: 100%;
 }
+#indexContent{
+  width:100%;
+  margin-top: 10px;
+}
 .carousel-caption{
-  position: relative;
+  position: absolute;
   bottom: 70% !important;
+}
+.side-panel > .panel-heading{
+  text-align: center;
+}
+
+
+
+
+
+
+/*Style for "theissues" page*/
+#theIssuesContainer{
+  margin-top: 15px;
+}
+#theIssuesImage{
+  width: 100%;
+}
+.bernie-issues{
+  text-align: center;
+  background-color: #f46e6e !important;
+}
+
+.bernie-issues h3{
+  color: white;
+}
+
+.bernie-issues > a > h3{
+  color: white !important;
+  font-weight: 300;
+}
+.bernie-solution{
+ text-align: center;
+}
+.bernie-solution:hover{
+  background-color: #1990ea !important;
+  cursor: pointer;
 }

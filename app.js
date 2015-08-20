@@ -7,7 +7,21 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var theman = require('./routes/theman');
+var theissues = require('./routes/theissues');
 var hbs = require('hbs');
+
+var Parse = require('node-parse-api').Parse;
+var APP_ID = "LdiNPVjUchKBhP43kq5M854UNGTibqJ8Z4VNBheJ",
+    MASTER_KEY = "hWhEkdDI5br7OoN07bYStnc4thumhyfFt6bMl5I0";
+
+var database = new Parse(APP_ID, MASTER_KEY);
+
+// add a Foo object, { foo: 'bar' }
+//database.delete('Foo', "QzekqIlve8", function (err, response) {
+//  console.log(response);
+//});
+
 
 var app = express();
 
@@ -24,8 +38,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use(favicon('./public/images/favicon.ico'));//TODO: fix
 app.use('/', index);
 app.use('/users', users);
+app.use('/theman', theman);
+app.use('/theissues', theissues);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
