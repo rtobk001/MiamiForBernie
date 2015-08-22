@@ -5,11 +5,12 @@
 body {
   padding: 0;
   /*background-color: #EBEBEB !important;*/
+  /*background-color: #0a68b4 !important;*/
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
-a {
-  color: #00B7FF;
-}
+/*a {*/
+  /*color: #00B7FF;*/
+/*}*/
 
 /*globals*/
 
@@ -19,14 +20,24 @@ a {
 
 
 
-
-/*index*/
+/*navbar*/
 #mainNavbar{
   margin-bottom: 0;
   z-index: 9999;
 }
+.nav a{
+  color: white !important;
+}
+.nav a:hover{
+  background-color: white !important;
+  color: #2196f3 !important;
+}
 #mainNavbar li, #mainNavbar input{
   font-size: 1.5em;
+}
+/*collapsed menu bars*/
+.icon-bar{
+  background-color: white !important;
 }
 #bernieBrandImage{
   height: 65px;
@@ -35,24 +46,123 @@ a {
   right:15px;
 }
 
-#mainImageDiv{
+
+/*index*/
+#mainImageContainer{
   padding-top:0;
   margin-top:0;
   width: 100%;
+  height: 700px;
 }
-#mainImage{
-  width: 100%;
+#imageLeft, #imageCenter,#imageRight{
+  width: 33.33%;
+  height: 700px;
 }
+.mainImages{
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all .5s ease;
+}
+/*text shows after a delay on hover, done with javascript*/
+.imageCover > h3{
+  text-align: center;
+  padding-top: 5%;
+  color: white;
+}
+.mainImages:hover{
+  background-size: 125% 125% !important;
+}
+#imageLeft{
+  display: inline-block;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  background-image: url("../images/Bernie_Son.jpg");
+}
+#imageCenter{
+  background-image: url("../images/Bernie_ForPresident.jpg");
+  position: absolute;
+  top: 64px;
+  left: 33.33%;
+}
+#imageRight{
+  background-image: url("../images/Bernie_TheIssues.jpg");
+  position:absolute;
+  top:64px;
+  left:66.66%;
+}
+.imageCover{
+  position:absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.3);
+}
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  #mainImageContainer{
+    height: 300px;
+  }
+  #imageLeft, #imageCenter,#imageRight{
+    height: 300px;
+  }
+  .imageCover > h3{
+    font-size: 15px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1280px) {
+  #mainImageContainer{
+    height: 500px;
+  }
+  #imageLeft, #imageCenter,#imageRight{
+    height: 500px;
+  }
+  .imageCover > h3{
+    font-size: 22px;
+  }
+}
+@media (min-width: 1281px) and (max-width: 1600px) {
+  #mainImageContainer{
+    height: 700px;
+  }
+  #imageLeft, #imageCenter,#imageRight{
+    height: 700px;
+  }
+}
+@media (min-width: 1601px) and (max-width: 3500px) {
+  #mainImageContainer{
+    height: 900px;
+  }
+  #imageLeft, #imageCenter,#imageRight{
+    height: 900px;
+  }
+}
+/*@-webkit-keyframes slide_down_cover { from { top: 0; } to { top: 70%; }  }*/
+/*@-moz-keyframes slide_down_cover { from { top: 0; } to { top: 70%; }  }*/
+/*@-o-keyframes slide_down_cover { from { top: 0; } to { top: 70%; }  }*/
+/*@keyframes slide_down_cover { from { top: 0; } to { top: 70%; }  }*/
+
+/*.imageCover:hover{*/
+  /*-webkit-animation: slide_down_cover .5s linear 0s;*/
+  /*-moz-animation: slide_down_cover .5s linear 0s ;*/
+  /*-o-animation: slide_down_cover .5s linear 0s ;*/
+  /*animation: slide_down_cover .5s linear 0s ;*/
+/*}*/
+
 #indexContent{
   width:100%;
   margin-top: 10px;
 }
-.carousel-caption{
-  position: absolute;
-  bottom: 70% !important;
-}
 .side-panel > .panel-heading{
   text-align: center;
+}
+.panel{
+  border: 1px #2196F3 solid !important;
+  -moz-box-shadow: 0 0 5px #888 !important;
+  -webkit-box-shadow: 0 0 5px#888 !important;
+  box-shadow: 0 0 5px #888 !important;
 }
 
 
@@ -66,10 +176,16 @@ a {
 }
 #theIssuesImage{
   width: 100%;
+  -moz-box-shadow: 0 0 5px #888 !important;
+  -webkit-box-shadow: 0 0 5px#888 !important;
+  box-shadow: 0 0 5px #888 !important;
 }
 .bernie-issues{
   text-align: center;
   background-color: #f46e6e !important;
+  -moz-box-shadow: 0 0 5px #888 !important;
+  -webkit-box-shadow: 0 0 5px#888 !important;
+  box-shadow: 0 0 5px #888 !important;
 }
 
 .bernie-issues h3{

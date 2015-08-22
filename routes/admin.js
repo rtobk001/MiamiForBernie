@@ -1,12 +1,12 @@
 /**
- * Created by Daniel on 8/18/2015.
+ * Created by Daniel on 8/21/2015.
  */
 var express = require('express');
 var router = express.Router();
 
-/* GET bernie profile page. */
+/* GET admin page. */
 router.get('/', function(req, res, next) {
-    res.render('theman', { title: 'Miami for Bernie' });
+    res.render('admin', { title: 'Miami for Bernie' });
 });
 
 module.exports = router;

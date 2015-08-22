@@ -4,12 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var hbs = require('hbs');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var theman = require('./routes/theman');
 var theissues = require('./routes/theissues');
-var hbs = require('hbs');
+var admin = require('./routes/admin');
 
 var Parse = require('node-parse-api').Parse;
 var APP_ID = "LdiNPVjUchKBhP43kq5M854UNGTibqJ8Z4VNBheJ",
@@ -44,6 +45,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/theman', theman);
 app.use('/theissues', theissues);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
