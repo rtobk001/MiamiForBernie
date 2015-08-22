@@ -150,7 +150,18 @@ body {
   /*-o-animation: slide_down_cover .5s linear 0s ;*/
   /*animation: slide_down_cover .5s linear 0s ;*/
 /*}*/
-
+#divUnderMainImage{
+  width: 100%;
+  height: 400px;
+  background-color: #0a68b4 !important;
+  padding-top: 100px;
+}
+#redVolunteerDiv{
+  width: 60%;
+  height: 200px;
+  margin-left: 20%;
+  background-color: red;
+}
 #indexContent{
   width:100%;
   margin-top: 10px;
