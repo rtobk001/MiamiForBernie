@@ -6,7 +6,7 @@ var router = express.Router();
 
 /* GET bernie profile page. */
 router.get('/', function(req, res, next) {
-    res.render('theman', { title: 'Miami for Bernie' });
+    res.render('theman', { title: 'The Man' });
 });
 
 module.exports = router;

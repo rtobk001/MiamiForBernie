@@ -6,7 +6,7 @@ var router = express.Router();
 
 /* GET issues page. */
 router.get('/', function(req, res, next) {
-    res.render('theissues', { title: 'Miami for Bernie' });
+    res.render('theissues', { title: 'The Issues' });
 });
 
 module.exports = router;

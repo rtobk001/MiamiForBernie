@@ -23,12 +23,12 @@ body {
 /*navbar*/
 #mainNavbar{
   margin-bottom: 0;
-  z-index: 9999;
+  /*background-color: #2A303C !important;*/
 }
-.nav a{
+#mainNavbar .nav a{
   color: white !important;
 }
-.nav a:hover{
+#mainNavbar .nav a:hover{
   background-color: white !important;
   color: #2196f3 !important;
 }
@@ -133,10 +133,10 @@ body {
 }
 @media (min-width: 1601px) and (max-width: 3500px) {
   #mainImageContainer{
-    height: 900px;
+    height: 1200px;
   }
   #imageLeft, #imageCenter,#imageRight{
-    height: 900px;
+    height: 1200px;
   }
 }
 /*@-webkit-keyframes slide_down_cover { from { top: 0; } to { top: 70%; }  }*/
@@ -153,24 +153,49 @@ body {
 #divUnderMainImage{
   width: 100%;
   height: 400px;
-  background-color: #0a68b4 !important;
+  background-color: #EBEBEB;
   padding-top: 100px;
 }
 #redVolunteerDiv{
   width: 60%;
   height: 200px;
   margin-left: 20%;
-  background-color: red;
+  background-color: #F46E6E;
+  padding-left: 40px!important;
+  padding-right: 40px !important;
 }
+#redVolunteerDiv > h3{
+  color: white;
+  text-align: center;
+}
+#volunteerFormDiv{
+  background-color: white !important;
+  height: 75px;
+  padding-top: 15px;
+}
+@media (max-width: 768px) {
+  #redVolunteerDiv{
+    padding-bottom: 250px !important;
+  }
+  #volunteerFormDiv{
+    padding-bottom: 100px !important;
+  }
+  #volunteerFormBtn{
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
 #indexContent{
   width:100%;
-  margin-top: 10px;
+  padding-top: 20px;
+  /*background-color: #EBEBEB;*/
 }
 .side-panel > .panel-heading{
   text-align: center;
+  /*background-color: #2A303C !important;*/
 }
 .panel{
-  border: 1px #2196F3 solid !important;
   -moz-box-shadow: 0 0 5px #888 !important;
   -webkit-box-shadow: 0 0 5px#888 !important;
   box-shadow: 0 0 5px #888 !important;
@@ -213,4 +238,32 @@ body {
 .bernie-solution:hover{
   background-color: #1990ea !important;
   cursor: pointer;
+}
+
+
+/*login modal styles*/
+#loginModal legend{
+  text-align: center;
+  color: #f46e6e;
+  border-bottom-color: #f46e6e;
+}
+
+
+
+
+
+/*footer style*/
+#footer{
+  /*position: absolute;*/
+  /*bottom:0;*/
+  text-align: right;
+  color: white;
+  background-color: #2A303C;
+  width: 100%;
+  height: 40px;
+  padding-top: 5px;
+}
+#footer > a{
+  color: white;
+  margin-right: 20px;
 }
