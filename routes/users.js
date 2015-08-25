@@ -67,16 +67,15 @@ router.post('/register', function(req, res, next) {
     //Create User
     User.createUser(newUser, function(err, user){
       if(err){
-
+        res.render('index', {title: "Miami for Bernie"});
       }
       console.log(user);
+      //Success Message
+      req.flash('success', 'You are now registered and may log in.');
+
+      req.location('/');
+      res.redirect('/');
     });
-
-    //Success Message
-    req.flash('success', 'You are now registered and may log in.');
-
-    req.location('/');
-    res.redirect('/');
 
   }
 
