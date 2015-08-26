@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../controllers/User');
+var User = require('../controllers/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -35,18 +35,18 @@ router.post('/register', function(req, res, next) {
   //var errors = req.validationErrors();
 
 
-  var errors;
-  if(password != password2){
-    errors = "Passwords do not match."
-  }
+  //var errors;
+  //if(password != password2){
+  //  errors = "Passwords do not match."
+  //}
 
-  //TODO: Check is registration code is valid
+  //TODO: Check if registration code is valid
 
-  if(errors){
-    res.render('index', {
-      title:"Miami for Bernie",
-      errors: errors,
-    })
+  if(!REGISTRATION_CODES[registrationCode]){
+    //res.render('index', {
+    //  title:"Miami for Bernie"
+    //});
+    res.send(500, "Sorry, your registration code is invalid.");
   }else{
     var newUser = {
       firstName: firstName,
@@ -58,23 +58,28 @@ router.post('/register', function(req, res, next) {
       role: "admin"
     };
 
-    console.log(newUser);
-
-    res.render('admin',{
-      title: 'Admin'
-    });
-
     //Create User
     User.createUser(newUser, function(err, user){
       if(err){
-        res.render('index', {title: "Miami for Bernie"});
-      }
-      console.log(user);
-      //Success Message
-      req.flash('success', 'You are now registered and may log in.');
+        //res.render('index', {title: "Miami for Bernie"});
+        res.send(500, err);
+      }else{
+        //Success Message
+        //req.flash('success', 'You are now registered and may log in.');
 
-      req.location('/');
-      res.redirect('/');
+        console.log("New User Created:");
+        console.log(user);
+
+        res.send(200, user);
+
+        //res.render('index',{
+        //  title: 'Miami for Bernie'
+        //});
+
+        //req.location('/');
+        //res.redirect('/');
+      }
+
     });
 
   }

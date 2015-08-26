@@ -1,5 +1,7 @@
-<form action="/users/register" method="post" role="form">
+<form role="form" id="registrationForm">
     <legend>Admin Registration</legend>
+    <div class="alert alert-warning hidden" role="alert"></div>
+    <div class="alert alert-success hidden" role="alert"></div>
     <div class="form-group">
         <input type="text" class="form-control" name="registerFirstName" id="registerFirstName" placeholder="First Name" required>
     </div>
@@ -23,6 +25,67 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" value="Register">Register</button>
+        <button type="button" class="btn btn-primary" value="Register" id="registerBtn">Register</button>
     </div>
 </form>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function(){
+
+        $("#registerBtn").click(function(e){
+            e.preventDefault();
+
+            var data = $("#registrationForm").serialize();
+//            console.log(data);
+
+            $.ajax({
+                type: "POST",
+                url: "/users/register",
+                data: data,
+//                success: success,
+//                dataType: dataType
+            }).success(function(data){
+                console.log("SUCCESS");
+                console.log(arguments);
+
+
+            }).fail(function(err, status){
+                console.log("FAILURE");
+                console.log(arguments);
+            });
+
+
+        });
+    });
+</script>
+
+<!--<form action="/users/register" method="post" role="form">-->
+    <!--<legend>Admin Registration</legend>-->
+    <!--<div class="form-group">-->
+        <!--<input type="text" class="form-control" name="registerFirstName" id="registerFirstName" placeholder="First Name" required>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<input type="text" class="form-control" name="registerLastName" id="registerLastName" placeholder="Last Name" required>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<input type="email" class="form-control" name="registerEmail" id="registerEmail" placeholder="E-Mail" required>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<input type="text" class="form-control" name="registerUsername" id="registerUsername" placeholder="Username" required>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<input type="password" class="form-control" name="registerPassword" id="registerPassword" placeholder="Password" required>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<input type="password" class="form-control" name="registerPassword2" id="registerPassword2" placeholder="Confirm Password" required>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<input type="text" class="form-control" name="registerCode" id="registerCode" placeholder="Enter your registration code here" required>-->
+    <!--</div>-->
+    <!--<div class="modal-footer">-->
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <!--<button type="submit" class="btn btn-primary" value="Register">Register</button>-->
+    <!--</div>-->
+<!--</form>-->
