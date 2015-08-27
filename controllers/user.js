@@ -27,10 +27,12 @@ module.exports = {
     createUser: function(newUser, callback){
         database.insertUser(newUser, function(err, response){
             if(err){
+                console.log(err);
                 callback(err);
                 //throw new Error("Failed to create user: " + JSON.stringify(newUser) + "\n Error message: " + err);
             }
             else{
+                console.log("user created");
                 console.log(response);
                 callback(null, response);
             }

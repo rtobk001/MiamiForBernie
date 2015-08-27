@@ -46,14 +46,15 @@ router.post('/register', function(req, res, next) {
     //res.render('index', {
     //  title:"Miami for Bernie"
     //});
-    res.send(500, "Sorry, your registration code is invalid.");
+    res.status(200).send({code: 200, error: "Sorry, your registration code is invalid."});
+    //res.send("Sorry, your registration code is invalid.");
   }else{
     var newUser = {
       firstName: firstName,
       lastName: lastName,
       fullName: fullName,
       email: email,
-      userName: userName,
+      username: userName,
       password: password,
       role: "admin"
     };
@@ -62,7 +63,7 @@ router.post('/register', function(req, res, next) {
     User.createUser(newUser, function(err, user){
       if(err){
         //res.render('index', {title: "Miami for Bernie"});
-        res.send(500, err);
+        res.send(err);
       }else{
         //Success Message
         //req.flash('success', 'You are now registered and may log in.');
@@ -70,7 +71,7 @@ router.post('/register', function(req, res, next) {
         console.log("New User Created:");
         console.log(user);
 
-        res.send(200, user);
+        res.status(status).send(body);
 
         //res.render('index',{
         //  title: 'Miami for Bernie'
