@@ -38,4 +38,15 @@ module.exports = {
             }
         });
     }
+
+    login: function(username, password, callback){
+        database.loginUser(username, password, function(error, response){
+            if(error){
+                callback(error);
+            }else{
+                callback(response);
+            }
+        });
+
+    }
 };

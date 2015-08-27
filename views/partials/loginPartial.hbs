@@ -1,4 +1,4 @@
-<form action="/users/login" method="post" role="form">
+<form role="form" id="loginForm">
 	<legend>Sign-in Portal</legend>
     <div class="form-group">
 		<input type="text" class="form-control" name="loginUsername" id="loginUsername" placeholder="Username" required>
@@ -8,6 +8,57 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" value="Login">Log in</button>
+        <button type="button" class="btn btn-primary" value="Login" id="loginBtn">Log in</button>
     </div>
 </form>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        function validateLoginForm(callback){
+
+            var username = $("#loginUsername").val();
+            var password = $("#loginPassword").val();
+
+            var formIsValid = true;
+            if(username == "" || username == undefined){
+                $("#loginUsername").parent().addClass("has-error");
+                formIsValid = false;
+            }else{
+                $("#loginUsername").parent().removeClass("has-error");
+            }
+            if(password == "" || password == undefined){
+                $("#loginPassword").parent().addClass("has-error");
+                formIsValid = false;
+            }else{
+                $("#loginPassword").parent().removeClass("has-error");
+            }
+
+            if(formIsValid){
+                callback();
+            }
+        }
+
+        $("#loginBtn").click(function(){
+            validateLoginForm(function(){
+                var data = $("#loginForm").serialize();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/users/login",
+                    data: data,
+//                success: success,
+//                dataType: dataType
+                }).success(function(res, status){
+
+                }).fail(function(err, status){
+                    console.log("FAILURE");
+                    console.log(arguments);
+                });
+
+
+            });
+        });
+    });
+</script>

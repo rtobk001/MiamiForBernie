@@ -89,10 +89,20 @@ router.post('/register', function(req, res, next) {
 
 
 
-router.get('/login', function(req, res, next) {
-  res.render('login', {
-    title: 'Login'
-  })
+router.post('/login', function(req, res, next) {
+
+  var username = req.body.loginUsername,
+      password = req.body.loginPassword;
+
+  User.login(username, password, function(error, response){
+    if(error){
+      res.render('index', {
+        title: 'Miami for Bernie',
+
+      })
+    }
+  });
+
 });
 
 module.exports = router;
