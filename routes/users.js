@@ -71,7 +71,7 @@ router.post('/register', function(req, res, next) {
         console.log("New User Created:");
         console.log(user);
 
-        res.status(status).send(body);
+        res.status(200).send({message: "Successfully registered user."});
 
         //res.render('index',{
         //  title: 'Miami for Bernie'
@@ -90,18 +90,31 @@ router.post('/register', function(req, res, next) {
 
 
 router.post('/login', function(req, res, next) {
-
   var username = req.body.loginUsername,
       password = req.body.loginPassword;
 
-  User.login(username, password, function(error, response){
-    if(error){
-      res.render('index', {
-        title: 'Miami for Bernie',
-
-      })
-    }
+  res.render('index', {
+    title: 'Miami for Bernie'
   });
+
+  //User.login(username, password, function(error, response){
+  //
+  //
+  //
+  //  //console.log('login called');
+  //  //if(error){
+  //  //  console.log(error);
+  //  //  res.render('index', {
+  //  //    title: 'Miami for Bernie'
+  //  //  });
+  //  //}else{
+  //  //  console.log('login successful');
+  //  //  res.render('admin', {
+  //  //    title: 'Administration'
+  //  //  });
+  //  //}
+  //
+  //});
 
 });
 
