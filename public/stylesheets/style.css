@@ -202,6 +202,19 @@ body {
 }
 
 
+/*Style for "theMan" page*/
+.theManImage{
+  padding-bottom: 20px;
+  padding-top: 10px;
+  width: 85%;
+}
+#theManDivider{
+  background-color: #EEEEEE;
+  width: 100%;
+  height: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 
 
